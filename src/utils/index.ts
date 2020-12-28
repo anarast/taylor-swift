@@ -1,4 +1,11 @@
 import { Router, Request, Response, NextFunction } from "express";
+import { initializeDB, initializeCache } from "./db";
+
+const redisPort = Number(process.env.REDIS_PORT || 6379);
+
+initializeDB();
+
+initializeCache(redisPort);
 
 type Wrapper = (router: Router) => void;
 
