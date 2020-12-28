@@ -1,6 +1,7 @@
 {
   "compilerOptions": {
     "experimentalDecorators": true,
+    "emitDecoratorMetadata": true,
     "target": "ES2019",
     "module": "commonjs",
     "sourceMap": true,

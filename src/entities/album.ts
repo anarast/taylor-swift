@@ -1,6 +1,6 @@
 import { Entity, PrimaryGeneratedColumn, Column } from "typeorm";
 
-@Entity()
+@Entity({ name: "albums" })
 export class Album {
   @PrimaryGeneratedColumn()
   id!: number;
@@ -9,7 +9,7 @@ export class Album {
   title!: string;
 
   @Column()
-  releaseDate!: string;
+  release_date!: string;
 
   @Column()
   label!: string;
