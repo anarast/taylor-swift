@@ -1,5 +1,6 @@
 import { Request, Response } from "express";
-import { getByTitle } from "../../controllers/trackController";
+import { getByTitle as getTrackByTitle } from "../../controllers/trackController";
+import { getByTitle as getAlbumByTitle } from "../../controllers/albumController";
 
 export default [
   {
@@ -12,6 +13,11 @@ export default [
   {
     path: "/track/getByTitle",
     method: "get",
-    handler: getByTitle,
+    handler: getTrackByTitle,
+  },
+  {
+    path: "/album/getByTitle",
+    method: "get",
+    handler: getAlbumByTitle,
   },
 ];

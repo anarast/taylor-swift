@@ -3,3 +3,4 @@ node_modules/
 dist
 src/scrapers/*
 src/utils/db-old.ts
+*.rdb
