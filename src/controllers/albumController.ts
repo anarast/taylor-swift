@@ -13,16 +13,21 @@ export const getByTitle = async (
       throw new HTTP400Error("Title is required.");
     }
 
-    const title = req.body.title;
+    // Lowercase and strip non-alphanumeric characters
+    const title = req.body.title.toLowerCase().replace(/\W/g, "");
 
-    const track = await getConnection()
+    const album = await getConnection()
       .createQueryBuilder()
       .select("album")
       .from(Album, "album")
-      .where("album.title = :title", { title: title })
+      .where("LOWER(album.title) = LOWER(:title)", { title: title })
       .getOne();
 
-    res.send(track);
+    if (!album) {
+      throw new HTTP400Error("Album with provided title not found.");
+    } else {
+      res.send(album);
+    }
   } catch (err) {
     next(err);
   }
