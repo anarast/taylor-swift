@@ -4,6 +4,8 @@
   "description": "",
   "main": "index.js",
   "scripts": {
+    "start": "node ./dist/src/server.js",
+    "build": "tsc",
     "dev": "tsc-watch --onSuccess 'node ./dist/src/server.js'",
     "migrate": "tsc && typeorm migration:run"
   },
